@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 """
-The script used for randomly generating augmented data for over sampling. 
+The script is used for generating randomly augmented data.  
 keras experimental preprocessing layers are utilized in the program for randomly augmenting the data and saving it.
 
 """
 
 
 import random
-
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
@@ -17,7 +16,7 @@ import tensorflow as tf
 
 from tensorflow.keras.layers.experimental.preprocessing import RandomContrast,RandomRotation,RandomCrop,RandomFlip
 
-
+# Generating the sequential model with preprocessing layers
 transform = tf.keras.Sequential([
     RandomRotation(0.2, fill_mode='reflect', interpolation='bilinear'),
     RandomFlip("horizontal_and_vertical"),
@@ -26,7 +25,7 @@ transform = tf.keras.Sequential([
 ])
 
 
-
+# paths to read images and path to save images
 folder_path = 'D:\MSC\Computer_Vision\Labs\Cropped_images'
 Desired_no_of_files = 500
 
@@ -52,7 +51,7 @@ while generated_files <= Desired_no_of_files:
     transformed_image = augment[0]
 
     new_file_path = '%s/augmented_image_%s.jpg' % (Save_folder, generated_files)
-    cv2.imwrite(new_file_path, transformed_image)
+    tf.keras.preprocessing.image.save_img(new_file_path,np.array(transformed_image),file_format='png')
 
     generated_files += 1
 
