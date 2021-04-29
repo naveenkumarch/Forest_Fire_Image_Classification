@@ -15,7 +15,7 @@
 * Augmentation_script folder containing data-augmentation.py script used for generating new image samples by applying random augmentations. 
 
 ## Requirements
-* The Traingin_and_Fine_Tuning code is developed for utilizing Kaggle TPU. so it should be executed in kaggle environment and no special environemnt preferences are needed for this code. Where as the evaluation code doesn't Tpu but instead uses Image data generator pipeline form keras. But the model have to be downloded from kaggle dataset.
+* The Traingin_and_Fine_Tuning code is developed for utilizing Kaggle TPU. so it should be executed in kaggle environment and no special environemnt preferences are needed for this code. Where as the evaluation code doesn't need tpu since it uses Image data generator pipeline form keras for data loading. But the trained model have to be downloded from kaggle dataset.
 
 
 ## Results
